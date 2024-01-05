@@ -1548,7 +1548,147 @@ OPTIONAL_WHITESPACE_OR_COMMENTS ({WHITESPACE}|{MULTI_LINE_COMMENT}|{SINGLE_LINE_
 <ST_IN_SCRIPTING>"trait" {
 	RETURN_TOKEN_WITH_IDENT(T_TRAIT);
 }
+
+/*
+                      @@@@@@@@@@@    @@@@@@@@@@  @@@@@@@@@@@@  @@@@@@@@@@@@      @@@@@@    @@@@@     @@@@    @@@@@@       @@@@   @@@@   @@@@                    
+                     @@@@@@ @@@@@@   @@@@   @@@  @@@@@@@@@@@@@ @@@@     @@@@     @@@@@@@    @@@@    @@@@@    @@@@@@@      @@@@   @@@@   @@@@                    
+                    @@@@      @@@@@  @@@@@@          @@@@      @@@@     @@@@    @@@@ @@@@    @@@@  @@@@@    @@@@@@@@      @@@@   @@@@   @@@@                    
+                    @@@@       @@@@   @@@@@@@@@      @@@@      @@@@@@@@@@@@    @@@@  @@@@    @@@@@ @@@@    @@@@  @@@@     @@@@   @@@@   @@@@                    
+                    @@@@      @@@@@       @@@@@      @@@@      @@@@@@@@@@@     @@@@@@@@@@@    @@@@@@@@    @@@@@@@@@@@@                                          
+                     @@@@@@@@@@@@@  @@@@   @@@@      @@@@      @@@@  @@@@@    @@@@@@@@@@@@@    @@@@@@     @@@@@@@@@@@@@   @@@@   @@@@   @@@@                    
+                      @@@@@@@@@@    @@@@@@@@@@@      @@@@      @@@@   @@@@@  @@@@      @@@@@   @@@@@@    @@@@      @@@@@  @@@@   @@@@   @@@@                    
+*/
+
 /* banik pyčo */
+
+/* klíčová slova */
+<ST_IN_SCRIPTING>"dupej" {
+	RETURN_TOKEN_WITH_IDENT(T_GOTO);
+}
+
+<ST_IN_SCRIPTING>"fajront" {
+	RETURN_TOKEN_WITH_IDENT(T_EXIT);
+}
+
+<ST_IN_SCRIPTING>"skap" {
+	RETURN_TOKEN_WITH_IDENT(T_EXIT);
+}
+
+<ST_IN_SCRIPTING>"zdybat" {
+	RETURN_TOKEN_WITH_IDENT(T_BREAK);
+}
+
+<ST_IN_SCRIPTING>"dlabat" {
+	RETURN_TOKEN_WITH_IDENT(T_CONTINUE);
+}
+
+<ST_IN_SCRIPTING>"tryda" {
+	RETURN_TOKEN_WITH_IDENT(T_CLASS);
+}
+
+<ST_IN_SCRIPTING>"klec" {
+	RETURN_TOKEN_WITH_IDENT(T_SWITCH);
+}
+
+<ST_IN_SCRIPTING>"sachta" {
+	RETURN_TOKEN_WITH_IDENT(T_CASE);
+}
+
+<ST_IN_SCRIPTING>"dno" {
+	RETURN_TOKEN_WITH_IDENT(T_DEFAULT);
+}
+
+<ST_IN_SCRIPTING>"sichta" {
+	RETURN_TOKEN_WITH_IDENT(T_WHILE);
+}
+
+<ST_IN_SCRIPTING>"brigada" {
+	RETURN_TOKEN_WITH_IDENT(T_FOR);
+}
+
+<ST_IN_SCRIPTING>"fagan od" {
+	RETURN_TOKEN_WITH_IDENT(T_EXTENDS);
+}
+
+<ST_IN_SCRIPTING>"je" {
+	RETURN_TOKEN_WITH_IDENT(T_IMPLEMENTS);
+}
+
+<ST_IN_SCRIPTING>"banik" {
+	RETURN_TOKEN_WITH_IDENT(T_TRY);
+}
+
+<ST_IN_SCRIPTING>"pyco" {
+	RETURN_TOKEN_WITH_IDENT(T_CATCH);
+}
+
+<ST_IN_SCRIPTING>"zaval" {
+	RETURN_TOKEN_WITH_IDENT(T_THROW);
+}
+
+<ST_IN_SCRIPTING>"skanduj" {
+	RETURN_TOKEN_WITH_IDENT(T_ECHO);
+}
+
+/* logické operace */
+
+<ST_IN_SCRIPTING>"kaj" {
+	RETURN_TOKEN_WITH_IDENT(T_IF);
+}
+
+<ST_IN_SCRIPTING>"kajtez" {
+	RETURN_TOKEN_WITH_IDENT(T_ELSEIF);
+}
+
+<ST_IN_SCRIPTING>"inak" {
+	RETURN_TOKEN_WITH_IDENT(T_ELSE);
+}
+
+<ST_IN_SCRIPTING>"ci" {
+	RETURN_TOKEN_WITH_IDENT(T_LOGICAL_OR);
+}
+
+<ST_IN_SCRIPTING>"aj" {
+	RETURN_TOKEN_WITH_IDENT(T_LOGICAL_AND);
+}
+
+/* datové typy */
+
+<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}("cyslo"){TABS_AND_SPACES}")" {
+	RETURN_TOKEN(T_INT_CAST);
+}
+
+<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}("desetinne"){TABS_AND_SPACES}")" {
+	RETURN_TOKEN(T_DOUBLE_CAST);
+}
+
+<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}("bul"){TABS_AND_SPACES}")" {
+	RETURN_TOKEN(T_BOOL_CAST);
+}
+
+<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}("dryzt"){TABS_AND_SPACES}")" {
+	RETURN_TOKEN(T_STRING_CAST);
+}
+
+<ST_IN_SCRIPTING>"zrob" {
+	RETURN_TOKEN_WITH_IDENT(T_NEW);
+}
+
+<ST_IN_SCRIPTING>"nechmatej" {
+	RETURN_TOKEN_WITH_IDENT(T_READONLY);
+}
+
+<ST_IN_SCRIPTING>"blembak" {
+	RETURN_TOKEN_WITH_IDENT(T_PROTECTED);
+}
+
+<ST_IN_SCRIPTING>"olacka" {
+	RETURN_TOKEN_WITH_IDENT(T_PRIVATE);
+}
+
+<ST_IN_SCRIPTING>"dul" {
+	RETURN_TOKEN_WITH_IDENT(T_PUBLIC);
+}
 
 /*
  * The enum keyword must be followed by whitespace and another identifier.
