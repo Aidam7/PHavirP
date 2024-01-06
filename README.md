@@ -4,7 +4,7 @@
 
 ## Co?
 
-Bylo to 15. října 2015 kdy Tomáš Kohout poctil Ostravu svým prvním programovacím jazykem, [OSTRAJavou](https://github.com/tkohout/OSTRAJava). Tento čin navždy povznesl Ostravu na vyšší úrovně vědomí, jako důkaz tomu slouží například návštěva Usaina Bolta v roce 2016 či založení divadla Mír v roce 2017.
+Bylo to 15. října 2015 kdy Tomáš Kohout poctil Ostravu svým prvním programovacím jazykem, [OSTRAJavou](https://github.com/tkohout/OSTRAJava). Tento čin navždy povznesl Ostravu na vyšší úrovně vědomí, jako důkaz tomu slouží například návštěva Usaina Bolta v roce 2016 či založení Divadla Mír v roce 2017.
 
 ## Proč?
 
