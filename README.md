@@ -4,13 +4,25 @@
 
 ## Co?
 
-Bylo to 15. října 2015 kdy Tomáš Kohout poctil Ostravu svým prvním programovacím jazykem, [OSTRAJavou](https://github.com/tkohout/OSTRAJava). Tento čin navždy povznesl Ostravu na vyšší úrovně vědomí, jako důkaz tomu slouží například založení divadla Mír v roce 2017 či návštěva Usainem Boltem v roce 2016.
+Bylo to 15. října 2015 kdy Tomáš Kohout poctil Ostravu svým prvním programovacím jazykem, [OSTRAJavou](https://github.com/tkohout/OSTRAJava). Tento čin navždy povznesl Ostravu na vyšší úrovně vědomí, jako důkaz tomu slouží například návštěva Usaina Bolta v roce 2016 či založení divadla Mír v roce 2017.
 
 ## Proč?
 
-Je potřeba dostat Ostravu na internet, to OSTRAJava nesvede. Proto je čas vytvořit nový jazyk, **PHavířP**.
+Je potřeba dostat Ostravu na internet, to OSTRAJava nesvede. Proto je čas vytvořit nový jazyk, **PHavířP**. Například společnost OKD již reaguje na zrychlený odliv havířů z dolů na web development a [přpravuje se na konec těžby](https://www.idnes.cz/ostrava/zpravy/okd-ostroj-tezba-uhli-utlum-hospodarska-komora.A230418_720553_ostrava-zpravy_jog).
+
+## Použití
+
+Typický příklad programu napsaném v PHavířP:
+
+```
+<?php
+skanduj "Banik Pyčo Banik Pyčo FCB!";
+?>
+```
 
 ## Už zostravčeno
+
+PHavířP používá příponu `.php`, stejně jako původní PHP, každý program napsaný v PHP je tedy napsaný i v PHavířP.
 
 ### Klíčová slova
 
@@ -75,6 +87,7 @@ Vypadá to nějak takhle
 ```
 
 Chceš teda "zostravčit" klíčové slovo _goto_ na _dupej_ ?
+
 Jako první zkopíruj:
 
 ```
@@ -84,6 +97,7 @@ Jako první zkopíruj:
 ```
 
 A vlož ho pod komentář `/* banik pyčo */`
+
 Pak přepiš:
 
 ```
@@ -98,20 +112,27 @@ Na:
 
 Pokud nejsi cyp tak ti půjde zkompilovat PHavířP.
 
-# Kompilování
+## Kompilování pro Windows
 
-1. Spusť `./buildconf`
-2. Spusť `./configure --prefix <where_to_install_php>`
-3. Spusť `make`
-4. Spusť `make install`
+[Zde.](https://github.com/php/php-sdk-binary-tools#basic-usage-example)
+
+## Kompilování pro Linux
+
+0. Nastav práva na 777: `sudo chmod 777 -R <cyp>/`
+1. Nainstaluj tyhle cypy `sudo apt install -y pkg-config build-essential autoconf bison re2c libxml2-dev libsqlite3-dev`
+2. Spusť `./buildconf`
+3. Spusť `./configure`
+4. Spusť `make` (Jestli to poprvý netrvá dlouho tak je něco špatně)
+5. Spusť `make install`
+
+---
 
 Právě jsi zostravčil PHP, gratuluju.<br>
-(Jo a první volání `make` může chvilku zabrat)
 
-# Jak pomoct Ostravě?
+## Jak pomoct Ostravě?
 
-Můžeš mi otevřít pull request, snad mě do té doby nikdo nevezme lopatou
+Můžeš mi otevřít pull request, snad mě do té doby nikdo nevezme lopatou.
 
-# Inspirační
+## Inspirační
 
 Vznik PHavířP byl inspirován [OSTRAJavou](https://github.com/tkohout/OSTRAJava) a [PHPkem jejího veličenstva](https://github.com/samuelbsource/her-majesty-php).
