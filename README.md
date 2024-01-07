@@ -10,16 +10,6 @@ Bylo to 15. října 2015 kdy Tomáš Kohout poctil Ostravu svým prvním program
 
 Je potřeba dostat Ostravu na internet, to OSTRAJava nesvede. Proto je čas vytvořit nový jazyk, **PHavířP**. Například společnost OKD již reaguje na zrychlený odliv havířů z dolů na web development a [přpravuje se na konec těžby](https://www.idnes.cz/ostrava/zpravy/okd-ostroj-tezba-uhli-utlum-hospodarska-komora.A230418_720553_ostrava-zpravy_jog).
 
-## Použití
-
-Typický příklad programu napsaném v PHavířP:
-
-```
-<?php
-skanduj "Banik Pyčo Banik Pyčo FCB!";
-?>
-```
-
 ## Už zostravčeno
 
 PHavířP používá příponu `.php`, stejně jako původní PHP, každý program napsaný v PHP je tedy napsaný i v PHavířP.
@@ -28,23 +18,21 @@ PHavířP používá příponu `.php`, stejně jako původní PHP, každý progr
 
 | banik pyčo | Původní klíčové slovo |
 | :--------- | :-------------------- |
+| skanduj    | echo                  |
 | fajront    | exit                  |
 | skap       | die                   |
 | dupej      | goto                  |
-| zdybat     | break                 |
-| dlabat     | continue              |
-| tryda      | class                 |
 | klec       | switch                |
 | sachta     | case                  |
-| dno        | default               |
+| veterka    | default               |
 | sichta     | while                 |
 | brigada    | for                   |
-| fagan od   | extends               |
-| je         | implements            |
+| zdybat     | break                 |
+| dlabat     | continue              |
 | banik      | try                   |
 | pyco       | catch                 |
 | zaval      | throw                 |
-| skanduj    | echo                  |
+| rob        | function              |
 
 ### Logické operace
 
@@ -62,11 +50,99 @@ I PHavířP je objektově orientovaný jazyk a tak nabízí všem Havířům upr
 
 | banik pyčo | Původní klíčové slovo |
 | :--------- | :-------------------- |
+| tryda      | class                 |
+| drzka      | interface             |
+| davaj      | return                |
+| fagan od   | extends               |
+| je         | implements            |
 | zrob       | new                   |
 | nechmatej  | readonly              |
 | blembak    | protected             |
 | olacka     | private               |
 | dul        | public                |
+
+## Použití
+
+Typický příklad programu napsaném v PHavířP:
+
+```
+<?php
+skanduj "Banik Pyčo Banik Pyčo FCB!";
+?>
+```
+
+Příklad použití dědičnosti v důlním prostředí za pomoci PHavířP:
+
+```
+<?php
+
+drzka Pracujici {
+    dul rob makaj();
+}
+
+tryda Havir je Pracujici {
+    dul $meno;
+    dul $pracuje;
+
+    dul rob makaj() {
+        skanduj "Rubu uhlí";
+    }
+
+    dul rob __construct($meno) {
+        $this->meno = $meno;
+        $this->pracuje = true;
+    }
+
+    dul rob dostanMeno() {
+        davaj $this->name;
+    }
+    dul rob domakal(){
+        $this->pracuje = false;
+    }
+}
+
+tryda Brigadnik fagan od Havir {
+    dul $smeny;
+
+    dul rob __construct($meno, $smeny) {
+        parent::__construct($meno);
+
+        $this->smeny = $smeny;
+    }
+
+    dul rob dostanKonec() {
+        davaj $this->smeny;
+    }
+    dul rob konecSmeny(){
+        $this->smeny--;
+        kaj ($this->smeny <= 0) {
+            $this->domakal();
+        }
+    }
+    dul rob makaj() {
+        kaj ($this->smeny <= 0) {
+            skanduj "$this->meno už nemá směny\n";
+            davaj;
+        }
+        kajtez ($this->smeny == 1) {
+            skanduj "Rubu uhlí naposled\n";
+        }
+        inak {
+            skanduj "Rubu uhlí brigádně\n";
+        }
+        $this->konecSmeny();
+    }
+}
+
+$brigadnik = zrob Brigadnik("Jarek Nohavica", 2);
+brigada ($i = 0; $i <= $brigadnik->smeny; $i++) {
+    $brigadnik->makaj();
+}
+$havir = zrob Havir("Roman Mrázik");
+sichta ($havir->pracuje) {
+    $havir->makaj();
+}
+```
 
 ## Jak zostravčit?
 
