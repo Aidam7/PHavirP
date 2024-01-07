@@ -56,17 +56,12 @@ PHavířP používá příponu `.php`, stejně jako původní PHP, každý progr
 | aj         | AND                   |
 | ci         | OR                    |
 
-### Datové typy
+### OOP
 
-Sice tím není PHP známé, ale i přesto nabízí PHavířP vlastní typy, protože stavíme na vyšší verzi PHP než je 7.4
+I PHavířP je objektově orientovaný jazyk a tak nabízí všem Havířům upravenou syntaxi.
 
 | banik pyčo | Původní klíčové slovo |
 | :--------- | :-------------------- |
-| cyslo      | int                   |
-| desetinne  | double                |
-| desetinne  | float                 |
-| bul        | bool                  |
-| dryzt      | string                |
 | zrob       | new                   |
 | nechmatej  | readonly              |
 | blembak    | protected             |
