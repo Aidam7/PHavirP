@@ -1550,13 +1550,13 @@ OPTIONAL_WHITESPACE_OR_COMMENTS ({WHITESPACE}|{MULTI_LINE_COMMENT}|{SINGLE_LINE_
 }
 
 /*
-                      @@@@@@@@@@@    @@@@@@@@@@  @@@@@@@@@@@@  @@@@@@@@@@@@      @@@@@@    @@@@@     @@@@    @@@@@@       @@@@   @@@@   @@@@                    
-                     @@@@@@ @@@@@@   @@@@   @@@  @@@@@@@@@@@@@ @@@@     @@@@     @@@@@@@    @@@@    @@@@@    @@@@@@@      @@@@   @@@@   @@@@                    
-                    @@@@      @@@@@  @@@@@@          @@@@      @@@@     @@@@    @@@@ @@@@    @@@@  @@@@@    @@@@@@@@      @@@@   @@@@   @@@@                    
+                      @@@@@@@@@@@    @@@@@@@@@@  @@@@@@@@@@@@  @@@@@@@@@@@@       @@@@@    @@@@@     @@@@@    @@@@@       @@@@   @@@@   @@@@                    
+                     @@@@@   @@@@@   @@@@   @@@  @@@@@@@@@@@@  @@@@     @@@@     @@@@@@@    @@@@    @@@@@    @@@@@@@      @@@@   @@@@   @@@@                    
+                    @@@@       @@@@  @@@@@@          @@@@      @@@@     @@@@    @@@@ @@@@    @@@@  @@@@@    @@@@@@@@      @@@@   @@@@   @@@@                    
                     @@@@       @@@@   @@@@@@@@@      @@@@      @@@@@@@@@@@@    @@@@  @@@@    @@@@@ @@@@    @@@@  @@@@     @@@@   @@@@   @@@@                    
-                    @@@@      @@@@@       @@@@@      @@@@      @@@@@@@@@@@     @@@@@@@@@@@    @@@@@@@@    @@@@@@@@@@@@                                          
-                     @@@@@@@@@@@@@  @@@@   @@@@      @@@@      @@@@  @@@@@    @@@@@@@@@@@@@    @@@@@@     @@@@@@@@@@@@@   @@@@   @@@@   @@@@                    
-                      @@@@@@@@@@    @@@@@@@@@@@      @@@@      @@@@   @@@@@  @@@@      @@@@@   @@@@@@    @@@@      @@@@@  @@@@   @@@@   @@@@                    
+                    @@@@       @@@@       @@@@@      @@@@      @@@@@@@@@@@     @@@@@@@@@@@    @@@@@@@@    @@@@@@@@@@@@                                          
+                     @@@@@   @@@@@   @@@   @@@@      @@@@      @@@@  @@@@@    @@@@@@@@@@@@@    @@@@@@     @@@@@@@@@@@@@   @@@@   @@@@   @@@@                    
+                      @@@@@@@@@@     @@@@@@@@@@      @@@@      @@@@   @@@@@  @@@@      @@@@@   @@@@@@    @@@@      @@@@@  @@@@   @@@@   @@@@                    
 */
 
 /* banik pyčo */
@@ -1700,6 +1700,40 @@ OPTIONAL_WHITESPACE_OR_COMMENTS ({WHITESPACE}|{MULTI_LINE_COMMENT}|{SINGLE_LINE_
 
 <ST_IN_SCRIPTING>"dul" {
 	RETURN_TOKEN_WITH_IDENT(T_PUBLIC);
+}
+
+/* Začátek a konec PHP tohle je kurva voodoo */
+
+<INITIAL>"BANIK"([ \t]|{NEWLINE}) {
+	HANDLE_NEWLINE(yytext[yyleng-1]);
+	BEGIN(ST_IN_SCRIPTING);
+	RETURN_OR_SKIP_TOKEN(T_OPEN_TAG);
+}
+
+<INITIAL>"BANIK" {
+	/* Allow <?php followed by end of file. */
+	if (YYCURSOR == YYLIMIT) {
+		BEGIN(ST_IN_SCRIPTING);
+		RETURN_OR_SKIP_TOKEN(T_OPEN_TAG);
+	}
+	/* Degenerate case: <?phpX is interpreted as <? phpX with short tags. */
+	if (CG(short_tags)) {
+		yyless(2);
+		BEGIN(ST_IN_SCRIPTING);
+		RETURN_OR_SKIP_TOKEN(T_OPEN_TAG);
+	}
+	goto inline_char_handler;
+}
+
+<ST_IN_SCRIPTING>"PYCO"{NEWLINE}? {
+	BEGIN(INITIAL);
+	if (yytext[yyleng-1] != '>') {
+		CG(increment_lineno) = 1;
+	}
+	if (PARSER_MODE()) {
+		RETURN_TOKEN(';');  /* implicit ';' at php-end tag */
+	}
+	RETURN_TOKEN(T_CLOSE_TAG);
 }
 
 /*

@@ -63,18 +63,20 @@ I PHavířP je objektově orientovaný jazyk a tak nabízí všem Havířům upr
 
 ## Použití
 
+Každý program PHavířP začíná slovy `BANIK` a končí slovy `PYCO`.
+
 Typický příklad programu napsaném v PHavířP:
 
 ```
-<?php
+BANIK
 skanduj "Banik Pyčo Banik Pyčo FCB!";
-?>
+PYCO
 ```
 
 Příklad použití dědičnosti v důlním prostředí za pomoci PHavířP:
 
 ```
-<?php
+BANIK
 
 drzka Pracujici {
     dul rob makaj();
@@ -142,6 +144,8 @@ $havir = zrob Havir("Roman Mrázik");
 sichta ($havir->pracuje) {
     $havir->makaj();
 }
+
+PYCO
 ```
 
 ## Jak zostravčit?
