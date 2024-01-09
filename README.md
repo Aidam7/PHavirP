@@ -29,8 +29,6 @@ PHavířP používá příponu `.php`, stejně jako původní PHP, každý progr
 | brigada    | for                   |
 | zdybat     | break                 |
 | dlabat     | continue              |
-| banik      | try                   |
-| pyco       | catch                 |
 | zaval      | throw                 |
 | rob        | function              |
 
@@ -59,17 +57,17 @@ I PHavířP je objektově orientovaný jazyk a tak nabízí všem Havířům upr
 | nechmatej  | readonly              |
 | blembak    | protected             |
 | olacka     | private               |
-| dul        | public                |
+| stodolni   | public                |
 
 ## Použití
 
-Každý program PHavířP začíná slovy `BANIK` a končí slovy `PYCO`.
+Každý program PHavířP začíná slovy `BANIK` a končí slovy `PYCO`. Místo středníků používá, jak jinak, zvučné ` pyco`.
 
 Typický příklad programu napsaném v PHavířP:
 
 ```
 BANIK
-skanduj "Banik Pyčo Banik Pyčo FCB!";
+skanduj "Toz vitaj!" pyco
 PYCO
 ```
 
@@ -79,70 +77,70 @@ Příklad použití dědičnosti v důlním prostředí za pomoci PHavířP:
 BANIK
 
 drzka Pracujici {
-    dul rob makaj();
+    stodolni rob makaj() pyco
 }
 
 tryda Havir je Pracujici {
-    dul $meno;
-    dul $pracuje;
+    stodolni $meno pyco
+    stodolni $pracuje pyco
 
-    dul rob makaj() {
-        skanduj "Rubu uhlí";
+    stodolni rob makaj() {
+        skanduj "Rubu uhlí" pyco
     }
 
-    dul rob __construct($meno) {
-        $this->meno = $meno;
-        $this->pracuje = true;
+    stodolni rob __construct($meno) {
+        $this->meno = $meno pyco
+        $this->pracuje = true pyco
     }
 
-    dul rob dostanMeno() {
-        davaj $this->name;
+    stodolni rob dostanMeno() {
+        davaj $this->name pyco
     }
-    dul rob domakal(){
-        $this->pracuje = false;
+    stodolni rob domakal(){
+        $this->pracuje = false pyco
     }
 }
 
 tryda Brigadnik fagan od Havir {
-    dul $smeny;
+    stodolni $smeny pyco
 
-    dul rob __construct($meno, $smeny) {
-        parent::__construct($meno);
+    stodolni rob __construct($meno, $smeny) {
+        parent::__construct($meno) pyco
 
-        $this->smeny = $smeny;
+        $this->smeny = $smeny pyco
     }
 
-    dul rob dostanKonec() {
-        davaj $this->smeny;
+    stodolni rob dostanKonec() {
+        davaj $this->smeny pyco
     }
-    dul rob konecSmeny(){
-        $this->smeny--;
+    stodolni rob konecSmeny(){
+        $this->smeny-- pyco
         kaj ($this->smeny <= 0) {
-            $this->domakal();
+            $this->domakal() pyco
         }
     }
-    dul rob makaj() {
+    stodolni rob makaj() {
         kaj ($this->smeny <= 0) {
-            skanduj "$this->meno už nemá směny\n";
-            davaj;
+            skanduj "$this->meno už nemá směny\n" pyco
+            davaj pyco
         }
         kajtez ($this->smeny == 1) {
-            skanduj "Rubu uhlí naposled\n";
+            skanduj "Rubu uhlí naposled\n" pyco
         }
         inak {
-            skanduj "Rubu uhlí brigádně\n";
+            skanduj "Rubu uhlí brigádně\n" pyco
         }
-        $this->konecSmeny();
+        $this->konecSmeny() pyco
     }
 }
 
-$brigadnik = zrob Brigadnik("Jarek Nohavica", 2);
-brigada ($i = 0; $i <= $brigadnik->smeny; $i++) {
-    $brigadnik->makaj();
+$brigadnik = zrob Brigadnik("Jarek Nohavica", 2) pyco
+brigada ($i = 0 pyco $i <= $brigadnik->smeny pyco $i++) {
+    $brigadnik->makaj() pyco
 }
-$havir = zrob Havir("Roman Mrázik");
+$havir = zrob Havir("Roman Mrázik") pyco
 sichta ($havir->pracuje) {
-    $havir->makaj();
+    $havir->makaj() pyco
 }
 
 PYCO
@@ -157,7 +155,7 @@ Vypadá to nějak takhle
 
 ```
 <ST_IN_SCRIPTING>"goto" {
-    RETURN_TOKEN_WITH_IDENT(T_GOTO);
+    RETURN_TOKEN_WITH_IDENT(T_GOTO) pyco
 }
 ```
 
@@ -167,7 +165,7 @@ Jako první zkopíruj:
 
 ```
 <ST_IN_SCRIPTING>"goto" {
-    RETURN_TOKEN_WITH_IDENT(T_GOTO);
+    RETURN_TOKEN_WITH_IDENT(T_GOTO) pyco
 }
 ```
 
