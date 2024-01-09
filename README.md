@@ -155,7 +155,7 @@ Vypadá to nějak takhle
 
 ```
 <ST_IN_SCRIPTING>"goto" {
-    RETURN_TOKEN_WITH_IDENT(T_GOTO) pyco
+    RETURN_TOKEN_WITH_IDENT(T_GOTO);
 }
 ```
 
@@ -165,7 +165,7 @@ Jako první zkopíruj:
 
 ```
 <ST_IN_SCRIPTING>"goto" {
-    RETURN_TOKEN_WITH_IDENT(T_GOTO) pyco
+    RETURN_TOKEN_WITH_IDENT(T_GOTO);
 }
 ```
 
