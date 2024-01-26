@@ -30,6 +30,8 @@ PHavířP používá příponu `.php`, stejně jako původní PHP, každý progr
 | zdybat     | break                 |
 | dlabat     | continue              |
 | zaval      | throw                 |
+| zkusaj     | try                   |
+| skripni    | catch                 |
 | rob        | function              |
 
 ### Logické operace
